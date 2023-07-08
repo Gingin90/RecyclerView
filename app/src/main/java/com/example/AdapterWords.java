@@ -1,7 +1,7 @@
-package cl.recyclerview;
+package com.example;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -18,7 +18,7 @@ public class AdapterWords extends RecyclerView.Adapter <AdapterWords.ViewHolder>
     @Override
     public AdapterWords.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
        ItemBinding binding=ItemBinding.inflate(LayoutInflater.from(parent.getContext()));
-        return null;
+        return new ViewHolder(binding.getRoot());
 
 
     }
@@ -33,11 +33,14 @@ public class AdapterWords extends RecyclerView.Adapter <AdapterWords.ViewHolder>
         return words.size();
     }
 
-    {
-    }
+ public  class ViewHolder extends RecyclerView.ViewHolder{
+     public ViewHolder(@NonNull View itemView) {
+         super(itemView);
+     }
+ }
+
+
 }
 
-        }
 
-        }
 

@@ -1,4 +1,4 @@
-package layout.recyclerview;
+package com.example;
 
 import android.os.Bundle;
 
@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 
 import com.example.recyclerview.R;
+import com.example.recyclerview.databinding.FragmentListBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +63,16 @@ public class ListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false);
+        ListFragmentBinding binding= FragmentListBinding.inflate(getActivity().getLayoutInflater());
+        AdapterWords adapter=new AdapterWords();
+
+        return binding.getRoot();
+    }
+    public List<String> getData(){
+        List<String> data = new ArrayList<>();
+        for(int i=0; i<20; i++){
+            data.add("word "+ i);
+        }
+        return data;
     }
 }
